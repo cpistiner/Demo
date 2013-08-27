@@ -9,7 +9,7 @@ using Web.ViewModels;
 
 namespace Web.Controllers
 {
-	public class Demo1Controller : Controller
+	public class ProvinciasController : Controller
 	{
 		private IList<Provincia> _listaProvincias;
 		public ActionResult Index()

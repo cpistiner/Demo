@@ -2,12 +2,12 @@
 <%@ Import Namespace="Trirand.Web.Mvc" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Demo 1
+    Provincias
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-	<h2>Demo 1</h2>
+	<h2>Provincias</h2>
 
 	<div class="clear"></div>
 
