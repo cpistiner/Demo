@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{744D998F-C771-4013-A554-1999EF652379}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{1308ACD9-2BB4-4481-85D4-72ACE6FA6D1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{744D998F-C771-4013-A554-1999EF652379}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{744D998F-C771-4013-A554-1999EF652379}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{744D998F-C771-4013-A554-1999EF652379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1308ACD9-2BB4-4481-85D4-72ACE6FA6D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1308ACD9-2BB4-4481-85D4-72ACE6FA6D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1308ACD9-2BB4-4481-85D4-72ACE6FA6D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1308ACD9-2BB4-4481-85D4-72ACE6FA6D1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
