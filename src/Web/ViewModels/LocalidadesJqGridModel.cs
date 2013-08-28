@@ -8,12 +8,15 @@ using Modelo;
 
 namespace Web.ViewModels
 {
-	public class ProvinciasJqGridModel : IJQGridModel
+	public class LocalidadesJqGridModel : IJQGridModel
 	{
+		IList<Provincia> _provincias;
+
 		public JQGrid Grid { get; set; }
 
-		public ProvinciasJqGridModel(string dataAction, string editDataAction)
+		public LocalidadesJqGridModel(string dataAction, string editDataAction, IList<Provincia> provincias)
 		{
+			_provincias = provincias;
 			Setup(dataAction, editDataAction);
 		}
 
@@ -46,20 +49,6 @@ namespace Web.ViewModels
 			Grid.AddDialogSettings.Resizable = false;
 
 			Grid.ViewRowDialogSettings.Width = 550;
-
-			// Activa el InlineEdit
-			//Grid.Columns.Insert(0, new JQGridColumn
-			//{
-			//	EditActionIconsColumn = true,
-			//	EditActionIconsSettings = new EditActionIconsSettings
-			//	{
-			//		SaveOnEnterKeyPress = false,
-			//		ShowEditIcon = true,
-			//		ShowDeleteIcon = true
-			//	},
-			//	HeaderText = "Edit Actions",
-			//	Width = 45
-			//});
 		}
 
 		private void SetUpSearch()
@@ -76,6 +65,35 @@ namespace Web.ViewModels
 			var descripcionColumn = Grid.Columns.Find(c => c.DataField == "Descripcion");
 			descripcionColumn.Editable = true;
 			descripcionColumn.EditFieldAttributes.Add(fieldWidth450);
+
+			var provinciaColumn = Grid.Columns.Find(c => c.DataField == "ProvinciaDescripcion");
+			provinciaColumn.Editable = true;
+			provinciaColumn.EditType = EditType.DropDown;
+
+			AjaxCallBackMode callBack;
+			bool skipAjaxCallBackMode;
+
+			try
+			{
+				callBack = Grid.AjaxCallBackMode;
+				skipAjaxCallBackMode = false;
+			}
+			catch (System.NullReferenceException)
+			{
+				skipAjaxCallBackMode = true;
+			}
+
+			if (skipAjaxCallBackMode || Grid.AjaxCallBackMode == AjaxCallBackMode.RequestData)
+			{
+				var selectList = _provincias.Select(
+					p => new SelectListItem
+					{
+						Value = p.Id.ToString(),
+						Text = p.Descripcion
+					}).ToList();
+
+				provinciaColumn.EditList = selectList;
+			}
 		}
 
 		private void SetUpColumns()
@@ -95,6 +113,13 @@ namespace Web.ViewModels
 			columnDescription.Width = 300;
 
 			Grid.Columns.Add(columnDescription);
+
+			var columnProvincia = new JQGridColumn();
+			columnProvincia.HeaderText = "Provincia";
+			columnProvincia.DataField = "ProvinciaDescripcion";
+			columnDescription.Width = 300;
+
+			Grid.Columns.Add(columnProvincia);
 		}
 
 		private void SetToolBar()

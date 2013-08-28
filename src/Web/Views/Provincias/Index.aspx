@@ -19,4 +19,17 @@
 		</div>
 	</div>
 
+	<%--Prueba para sobreescribir onClick del edit en InlineEdit--%>
+	<%--<script type="text/javascript">
+
+		function clickEdicion() {
+			alert("holaaaa");
+		}
+
+		jQuery(document).ready(function () {
+
+			jQuery('div.ui-pg-div.ui-inline-edit').attr("onClick", "clickEdicion()");
+
+    	});
+    </script>--%>
 </asp:Content>
