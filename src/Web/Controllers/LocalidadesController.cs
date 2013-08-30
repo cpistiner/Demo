@@ -11,7 +11,6 @@ namespace Web.Controllers
 {
 	public class LocalidadesController : Controller
 	{
-		private IList<Provincia> _listaProvincias;
 		public ActionResult Index()
 		{
 			ViewBag.Message = "Welcome to ASP.NET MVC!";
