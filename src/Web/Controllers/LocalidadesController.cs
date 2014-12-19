@@ -57,6 +57,7 @@ namespace Web.Controllers
 
 				localidad.Descripcion = viewModel.Descripcion;
 				localidad.Provincia = ListaDeProvincias().Where(p => p.Id == viewModel.ProvinciaId).Single();
+				localidad.MaskTest = viewModel.MaskTest;
 
 			}
 			catch (Exception ex)
@@ -102,8 +103,8 @@ namespace Web.Controllers
 			if (Session["localidades"] == null)
 			{
 				var provincias = ListaDeProvincias();
-				var localidad1 = new Localidad() { Id = Guid.NewGuid(), Descripcion = "Localidad 1", Provincia = provincias[0] };
-				var localidad2 = new Localidad() { Id = Guid.NewGuid(), Descripcion = "Localidad 2", Provincia = provincias[1] };
+				var localidad1 = new Localidad() { Id = Guid.NewGuid(), Descripcion = "Localidad 1", Provincia = provincias[0], MaskTest = "" };
+				var localidad2 = new Localidad() { Id = Guid.NewGuid(), Descripcion = "Localidad 2", Provincia = provincias[1], MaskTest = "" };
 
 				var lista = new List<Localidad>();
 				lista.Add(localidad1);

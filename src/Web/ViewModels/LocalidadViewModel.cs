@@ -18,7 +18,7 @@ namespace Web.ViewModels
 			Descripcion = localidad.Descripcion;
 			ProvinciaId = localidad.Provincia.Id;
 			ProvinciaDescripcion = localidad.Provincia.Descripcion;
-
+			MaskTest = localidad.MaskTest;
 		}
 
 		[Display(Name = "Descripción")]
@@ -28,6 +28,8 @@ namespace Web.ViewModels
 
 		public Guid ProvinciaId { get; set; }
 		public string ProvinciaDescripcion { get; set; }
+
+		public string MaskTest { get; set; }
 
 		internal void BindDropDowns(IList<Provincia> provincias)
 		{

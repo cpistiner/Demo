@@ -19,4 +19,16 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		function createGridEditElement(value, editOptions) {
+			return "<input id='MaskTest' type='text'></input>";
+		}
+		function getGridElementValue(elem, two, three) {
+			return $(elem).val();
+		}
+
+		function configurarEdicion() {
+			jQuery("#MaskTest").mask("99-99");
+		}
+	</script>
 </asp:Content>

@@ -39,6 +39,8 @@ namespace Web.ViewModels
 			Grid.EditDialogSettings.Width = 550;
 			Grid.AddDialogSettings.Width = 550;
 
+			Grid.ClientSideEvents.BeforeEditDialogShown = "configurarEdicion";
+
 			SetToolBar();
 			SetUpColumns();
 			SetUpEditableColumns();
@@ -60,6 +62,11 @@ namespace Web.ViewModels
 
 		private void SetUpEditableColumns()
 		{
+			var maskColumn = Grid.Columns.Find(c => c.DataField == "MaskTest");
+			maskColumn.Editable = true;
+			maskColumn.EditTypeCustomCreateElement = "createGridEditElement";
+			maskColumn.EditTypeCustomGetValue = "getGridElementValue";
+
 			var fieldWidth450 = new JQGridEditFieldAttribute() { Name = "style", Value = "width: 450px" };
 
 			var descripcionColumn = Grid.Columns.Find(c => c.DataField == "Descripcion");
@@ -120,6 +127,13 @@ namespace Web.ViewModels
 			columnDescription.Width = 300;
 
 			Grid.Columns.Add(columnProvincia);
+
+			var maskColumn = new JQGridColumn();
+			maskColumn.HeaderText = "MaskTest";
+			maskColumn.DataField = "MaskTest";
+			maskColumn.Width = 150;
+
+			Grid.Columns.Add(maskColumn);
 		}
 
 		private void SetToolBar()

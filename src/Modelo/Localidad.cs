@@ -8,6 +8,7 @@ namespace Modelo
     {
         private string _codigo;
         private string _descripcion;
+		private string _maskTest;
         private Provincia _provincia;
 
         public string Codigo
@@ -21,6 +22,12 @@ namespace Modelo
             get { return _descripcion; }
             set { _descripcion = value; }
         }
+
+		public string MaskTest
+		{
+			get { return _maskTest; }
+			set { _maskTest = value; }
+		}
 
         public Provincia Provincia
         {

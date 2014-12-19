@@ -21,6 +21,9 @@
 	<script src="../../Scripts/i18n/grid.locale-es.js" type="text/javascript"></script>
     <script src="../../Scripts/jquery.jqGrid.min.js" type="text/javascript"></script>
 
+	<!-- JQuery addons -->
+    <script src="../../Scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+
 	<!-- JQuery UI -->
 	<script src="../../Scripts/jquery-ui-1.11.2.min.js" type="text/javascript"></script>
 	<script src="../../Scripts/i18n/jquery.ui.datepicker-es.js" type="text/javascript"></script>
