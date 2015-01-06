@@ -30,5 +30,10 @@
 		function configurarEdicion() {
 			jQuery("#MaskTest").mask("99-99");
 		}
+
+		function columnChooserOnClick() {
+			var grid = jQuery("#JQGrid");
+			jQuery(grid).jqGrid("columnChooser");
+		}
 	</script>
 </asp:Content>

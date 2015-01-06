@@ -145,6 +145,15 @@ namespace Web.ViewModels
 			Grid.ToolBarSettings.ShowAddButton = true;
 			Grid.ToolBarSettings.ShowRefreshButton = true;
 			Grid.ToolBarSettings.ShowViewRowDetailsButton = true;
+
+			var button = new JQGridToolBarButton();
+			button.ButtonIcon = "ui-icon-grip-dotted-vertical";
+			button.ToolTip = "Mostrar/ocultar columnas";
+			button.Text = " ";
+			button.Position = ToolBarButtonPosition.Last;
+			button.OnClick = "columnChooserOnClick";
+
+			Grid.ToolBarSettings.CustomButtons.Add(button);
 		}
 	}
 }
