@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Web.UI.WebControls;
-using System.Web.Mvc;
-using Trirand.Web.Mvc;
+﻿using JQGridUtilities.JQGridBuilders;
 using Modelo;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using Trirand.Web.Mvc;
 
 namespace Web.ViewModels
 {
@@ -105,8 +105,9 @@ namespace Web.ViewModels
 
 		private void SetUpColumns()
 		{
-			var columnId = new JQGridColumn();
-			columnId.DataField = "Id";
+			var builder = new JQGridColumnBuilder();
+
+			var columnId = builder.GetStandard("Id", "Id");
 			columnId.Editable = false;
 			columnId.Searchable = false;
 			columnId.PrimaryKey = true;
@@ -146,11 +147,7 @@ namespace Web.ViewModels
 			Grid.ToolBarSettings.ShowRefreshButton = true;
 			Grid.ToolBarSettings.ShowViewRowDetailsButton = true;
 
-			var button = new JQGridToolBarButton();
-			button.ButtonIcon = "ui-icon-grip-dotted-vertical";
-			button.ToolTip = "Mostrar/ocultar columnas";
-			button.Text = " ";
-			button.Position = ToolBarButtonPosition.Last;
+			var button = JQGridToolBarButtonBuilder.ColumnChooser();
 			button.OnClick = "columnChooserOnClick";
 
 			Grid.ToolBarSettings.CustomButtons.Add(button);
