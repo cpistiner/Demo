@@ -67,11 +67,11 @@ namespace Web.ViewModels
 			maskColumn.EditTypeCustomCreateElement = "createGridEditElement";
 			maskColumn.EditTypeCustomGetValue = "getGridElementValue";
 
-			var fieldWidth450 = new JQGridEditFieldAttribute() { Name = "style", Value = "width: 450px" };
+			var builderAttribute = new JQGridEditFieldAttributeBuilder();
 
 			var descripcionColumn = Grid.Columns.Find(c => c.DataField == "Descripcion");
 			descripcionColumn.Editable = true;
-			descripcionColumn.EditFieldAttributes.Add(fieldWidth450);
+			descripcionColumn.EditFieldAttributes.Add(builderAttribute.StyleWidth(450).BuildStyle());
 
 			var provinciaColumn = Grid.Columns.Find(c => c.DataField == "ProvinciaDescripcion");
 			provinciaColumn.Editable = true;
@@ -115,16 +115,12 @@ namespace Web.ViewModels
 			
 			Grid.Columns.Add(columnId);
 
-			var columnDescription = new JQGridColumn();
-			columnDescription.HeaderText = "Descripción";
-			columnDescription.DataField = "Descripcion";
+			var columnDescription = builder.GetStandard("Descripción", "Descripcion");
 			columnDescription.Width = 300;
 
 			Grid.Columns.Add(columnDescription);
 
-			var columnProvincia = new JQGridColumn();
-			columnProvincia.HeaderText = "Provincia";
-			columnProvincia.DataField = "ProvinciaDescripcion";
+			var columnProvincia = builder.GetStandard("Provincia", "ProvinciaDescripcion");
 			columnDescription.Width = 300;
 
 			Grid.Columns.Add(columnProvincia);
