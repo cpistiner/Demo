@@ -143,7 +143,8 @@ namespace Web.ViewModels
 			Grid.ToolBarSettings.ShowRefreshButton = true;
 			Grid.ToolBarSettings.ShowViewRowDetailsButton = true;
 
-			var button = JQGridToolBarButtonBuilder.ColumnChooser(jqGridBuildersLanguages.Spanish);
+			JQGridToolBarButtonBuilder.SetDefaultLanguage(jqGridBuildersLanguages.Spanish);
+			var button = JQGridToolBarButtonBuilder.ColumnChooser();
 			button.OnClick = "columnChooserOnClick";
 
 			Grid.ToolBarSettings.CustomButtons.Add(button);
